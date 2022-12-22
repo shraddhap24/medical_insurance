@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="data:,">
+        <!-- <link rel="shortcut icon" href="#" /> -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Predict Medical Insurance Here</title>
+        <style>
+            input[type=number], select {
+            width: 20%;
+            padding: 5px 5px;
+            margin: 8px 8px;
+            display: inline-block;
+            border: 0.5px solid rgb(196, 196, 196);
+            border-radius: 4px;
+            box-sizing: border-box;
+            }
+            body, html {
+              height: 100%;
+              margin: 0;
+              font-family: 'Times New Roman', Times, serif,
+            }
+            
+            /* * {
+              box-sizing: content-box;
+            } */
+            
+            .bg-image {
+              /* The image used */
+              background-image: url("https://www.idfcfirstbank.com/content/dam/idfcfirstbank/images/blog/finance/3-reasons-for-increasing-health-insurance-premiums-717x404.jpg");
+              
+              
+              /* Full height */
+              height: 100%; 
+              
+              /* Center and scale the image nicely */
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+            
+            /* Position text in the middle of the page/image */
+            .bg-text {
+              color: rgb(26, 2, 2);
+              font-weight: bold;
+              position: absolute;
+              top: 55%;
+              left: 62%;
+              transform: translate(-50%, -50%);
+              z-index: 2;
+              width: 80%;
+              padding: 20px;
+              text-align: center;
+            }
+            </style>
+    </head>
+
+    <body TEXT = "Black";>
+        <div class="bg-image"></div>
+        <div class="bg-text">
+        <h1> Predict Your Medical Insurance Here</h1>
+        <h3> Fill given parameters :- </h3>
+        <form method="POST" action="/predict_charges">
+
+            <br>
+            <label>Age:</label>
+            <input type="number", name='age', 
+            min="1" max="120",step="any", required>
+            <br>
+          
+            <label>Gender:</label>
+            <select name = "gender">
+            <option value = "male">Male</option>
+            <option value = "female">Female</option>
+            </select>
+            <br>
+
+            <label>BMI:</label>
+            <input type="number", name='bmi', 
+            min="0" max="65",step="any", required>
+            </select>
+            <br>
+
+            <label>Children:</label>
+            <input type = "number" name = "children">
+            <!-- <h1 style="color:rgb(255, 255, 255);font-size:10px;">Eg: (1 to so on)$</h1> -->
+            </select>
+            <br>
+
+            <label>Smoker:</label>
+            <label>Yes:</label> <input type = "radio" name= "smoker" value = "yes">
+            <label>No:</label> <input type = "radio" name= "smoker" value = "no">
+            <!-- <h1 style="color:rgb(255, 255, 255);font-size:10px;">Eg: (1 to so on)$</h1> -->
+            <br>
+
+
+            <label>Region:</label>
+            <select name = "region">
+            <option value = "northeast">Northeast</option>
+            <option value = "southeast">Southeast</option>
+            <option value = "northwest">Northwest</option>
+            <option value = "southwest">Southwest</option>
+            </select>
+            <!-- <h1 style="color:rgb(255, 255, 255);font-size:10px;">Eg: (1 to so on)$</h1> -->
+            <br>
+
+
+
+            <!-- Submit -->
+            <style>
+                .button {
+                    display: inline-block;
+                    border-radius: 4px;
+                    background-color: #011a2b;
+                    border: none;
+                    color: #FFFFFF;
+                    text-align: center;
+                    font-size: 28px;
+                    padding: 20px;
+                    width: 250px;
+                    transition: all 0.5s;
+                    cursor: pointer;
+                    margin: 5px;
+                    }
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+                }
+
+                .button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+                }
+
+                .button:hover span {
+                padding-right: 25px;
+                }
+
+                .button:hover span:after {
+                opacity: 1;
+                right: 0;
+                }
+            </style>
+            <button style="font-size:20px;vertical-align:middle;font-family:verdana" type="submit" value="Submit" class="button"><span>Charges Prediction </span></button>
+            <br><br>
+            <div style="font-size:25px;font-family:verdana" id="box">{{ prediction }} </div>&nbsp;
+            <div style="font-size:25px;font-family:verdana" class="card-title">/Rs</div>
+            <br>
+            <!-- <input type = "submit" value="SUBMIT">
+
+            <br> -->
+
+            <!-- <p> Predicted Medical Insurance Charges is <b> {{ prediction }} Rs</b> Only </p> -->
+
+        </form>
+
+    </body>
+</html>
